@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DisciplineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/disciplines', [DisciplineController::class, 'store']);
+Route::get('/disciplines', [DisciplineController::class, 'list_all_discplines']);
+Route::patch('/disciplines/{id}', [DisciplineController::class, 'update']);
+Route::get('/disciplines/{id}', [DisciplineController::class, 'list_discipline']);
+Route::delete('/disciplines/{id}', [DisciplineController::class, 'delete']);
